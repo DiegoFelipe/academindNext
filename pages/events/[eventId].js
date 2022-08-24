@@ -1,7 +1,13 @@
-import React from 'react'
+import { useRouter } from "next/router";
+import React from "react";
+
+import { getEventById } from "../../dummy-data";
 
 export default function EventDetail() {
-  return (
-    <div>Event Details</div>
-  )
+  const router = useRouter();
+
+  const eventId = router.query.eventId;
+
+  getEventById(eventId);
+  return <div>Event Details</div>;
 }
