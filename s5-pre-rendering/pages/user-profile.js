@@ -9,7 +9,9 @@ export default function UserProfilePage(props) {
 }
 
 // Only executes with a request to this page
+// context has access to the full request
 export async function getServerSideProps(context) {
+  const { params, req, res } = context;
   return {
     props: {
       username: "Diego",
