@@ -3,6 +3,11 @@ import path from "path";
 
 export default function ProducDetailsPage(props) {
   const { product } = props;
+
+  if (!product) {
+    return <>Loading</>;
+  }
+
   return (
     <>
       <h1>{product.title}</h1>
@@ -48,6 +53,7 @@ export async function getStaticPaths() {
 
   return {
     paths: pathsWithParams,
-    fallback: true,
+    // fallback: true, // Usefull when have multiple products to be pre-generated
+    fallback: false, // when true it needs a fallback, because it will be generated JIT
   };
 }
